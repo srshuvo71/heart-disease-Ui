@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import type { FormEvent } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthShell } from "../components/AuthShell";
 import { FormField } from "../components/FormField";
 import { Button } from "../components/Button";
@@ -13,9 +14,18 @@ const socials = [
 ];
 
 export default function Login() {
+  const navigate = useNavigate();
+
+  // No auth backend yet — submitting the form drops straight into the
+  // dashboard so the post-login experience can be reviewed end to end.
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    navigate("/dashboard");
+  };
+
   return (
     <AuthShell title="Login">
-      <form className="flex w-full flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
+      <form className="flex w-full flex-col gap-4" onSubmit={handleSubmit}>
         <FormField id="email" label="Email" type="email" placeholder="username@gmail.com" autoComplete="email" />
         <FormField
           id="password"

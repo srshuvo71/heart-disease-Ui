@@ -68,6 +68,66 @@ body {
   }
 }
 
+/* Confident double-beat for a healthy dashboard result. */
+@keyframes heartbeat-strong {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.07);
+  }
+  20% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.07);
+  }
+  45% {
+    transform: scale(1);
+  }
+}
+
+/* Uneven, shallow beat for an at-risk dashboard result. */
+@keyframes heartbeat-weak {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  8% {
+    transform: scale(1.018);
+  }
+  17% {
+    transform: scale(0.994);
+  }
+  55% {
+    transform: scale(1.022);
+  }
+  64% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bloom-glow {
+  0%,
+  100% {
+    filter: saturate(1) brightness(1);
+  }
+  50% {
+    filter: saturate(1.15) brightness(1.06);
+  }
+}
+
+@keyframes wither-glow {
+  0%,
+  100% {
+    filter: saturate(1) brightness(1);
+  }
+  50% {
+    filter: saturate(0.72) brightness(0.9);
+  }
+}
+
 .animate-float-y {
   animation: float-y 6s ease-in-out infinite;
 }
@@ -80,10 +140,30 @@ body {
   animation: heartbeat 2.6s ease-in-out infinite;
 }
 
+.animate-heartbeat-strong {
+  animation: heartbeat-strong 2.4s ease-in-out infinite;
+}
+
+.animate-heartbeat-weak {
+  animation: heartbeat-weak 3.6s ease-in-out infinite;
+}
+
+.animate-bloom-glow {
+  animation: bloom-glow 5s ease-in-out infinite;
+}
+
+.animate-wither-glow {
+  animation: wither-glow 6.5s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-float-y,
   .animate-pulse-glow,
-  .animate-heartbeat {
+  .animate-heartbeat,
+  .animate-heartbeat-strong,
+  .animate-heartbeat-weak,
+  .animate-bloom-glow,
+  .animate-wither-glow {
     animation: none !important;
   }
   html {
