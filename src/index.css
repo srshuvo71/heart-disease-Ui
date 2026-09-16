@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-brand-bg: #feedf7;
+  --color-brand-card: #d9d9d9;
+  --color-brand-primary: #b92229;
+  --color-brand-primary-dark: #921b21;
+  --color-brand-accent: #df3f35;
+  --color-brand-ink: #17141a;
+  --font-display: "Poppins", "Inter", sans-serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-brand-ink);
+  background: var(--color-brand-bg);
+}
+
+::selection {
+  background: var(--color-brand-primary);
+  color: white;
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.045);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.045);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+.animate-float-y {
+  animation: float-y 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-heartbeat {
+  animation: heartbeat 2.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-y,
+  .animate-pulse-glow,
+  .animate-heartbeat {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
